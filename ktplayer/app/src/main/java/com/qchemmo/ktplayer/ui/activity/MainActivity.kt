@@ -1,8 +1,8 @@
-package com.qchemmo.ktplayer
+package com.qchemmo.ktplayer.ui.activity
 
-import android.graphics.ColorSpace
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import com.qchemmo.ktplayer.R
 import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
@@ -13,6 +13,7 @@ class MainActivity : AppCompatActivity() {
 
         // Example of a call to a native method
         sample_text.text = stringFromJNI()
+
     }
 
     /**
