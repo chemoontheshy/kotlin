@@ -3,12 +3,14 @@ package com.qchemmo.ktplayer.base
 import android.os.Bundle
 import android.os.PersistableBundle
 import androidx.appcompat.app.AppCompatActivity
+import com.qchemmo.ktplayer.R
 import org.jetbrains.anko.AnkoLogger
+import org.jetbrains.anko.startActivity
 import org.jetbrains.anko.toast
 
 abstract class BaseActivity : AppCompatActivity(),AnkoLogger {
-    override fun onCreate(savedInstanceState: Bundle?, persistentState: PersistableBundle?) {
-        super.onCreate(savedInstanceState, persistentState)
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
         setContentView(getLayoutId())
         initListener()
         initData()
@@ -17,7 +19,7 @@ abstract class BaseActivity : AppCompatActivity(),AnkoLogger {
     /**
      * init data
      */
-    private fun initData() {
+    protected open fun initData() {
 
     }
 
@@ -25,7 +27,7 @@ abstract class BaseActivity : AppCompatActivity(),AnkoLogger {
      * adapter listener
      */
 
-    private fun initListener() {
+    protected open fun initListener() {
 
     }
 
@@ -36,5 +38,13 @@ abstract class BaseActivity : AppCompatActivity(),AnkoLogger {
 
     protected fun myToast(msg: String) {
         runOnUiThread { toast(msg) }
+    }
+
+    /**
+     *  start a activity and finish the activity
+     */
+    inline fun <reified T:BaseActivity>startActivityAndFinish(){
+        startActivity<T>()
+        finish()
     }
 }
