@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+    <tab
+            id="@+id/tab_home"
+            icon="@drawable/ic_launcher_foreground"
+            title="首页"/>
+    <tab
+            id="@+id/tab_MV"
+            icon="@drawable/ic_launcher_foreground"
+            title="首页"/>
+    <tab
+            id="@+id/tab_yuedan"
+            title="yuedan"/>
+
+</PreferenceScreen>
