@@ -1,10 +1,18 @@
 #include <jni.h>
-#include <string>
+
+extern "C"
+{
+    #include "include/libavcodec/avcodec.h"
+    #include "include/libavfilter/avfilter.h"
+    #include "include/libavformat/avformat.h"
+    #include "include/libavutil/avutil.h"
+    #include "include/libswresample/swresample.h"
+    #include "include/libswscale/swscale.h"
+}
 
 extern "C" JNIEXPORT jstring JNICALL
 Java_com_qchemmo_ffplay_MainActivity_stringFromJNI(
-        JNIEnv* env,
+        JNIEnv *env,
         jobject /* this */) {
-    std::string hello = "Hello from C++";
-    return env->NewStringUTF(hello.c_str());
+    return env->NewStringUTF(avfilter_configuration());
 }

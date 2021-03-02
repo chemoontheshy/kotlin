@@ -17,6 +17,14 @@ android {
         externalNativeBuild {
             cmake {
                 cppFlags ""
+                // 过滤器，只打包arm-64-v8a,所以只指定一种
+                abiFilters 'arm64-v8a'
+            }
+        }
+        //指定资源文件夹，必加
+        sourceSets {
+            main{
+                jniLibs.srcDirs('src/main/cpp')
             }
         }
     }
