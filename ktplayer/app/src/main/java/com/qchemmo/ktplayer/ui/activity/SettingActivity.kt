@@ -1,6 +1,8 @@
 package com.qchemmo.ktplayer.ui.activity
 
 import android.widget.Toolbar
+import androidx.preference.PreferenceFragmentCompat
+import androidx.preference.PreferenceManager
 import com.qchemmo.ktplayer.R
 import com.qchemmo.ktplayer.base.BaseActivity
 import com.qchemmo.ktplayer.util.ToolBarManager
@@ -14,6 +16,9 @@ class SettingActivity: BaseActivity(),ToolBarManager{
 
     override fun initData() {
         initSettingToolbar()
+        val sp = PreferenceManager.getDefaultSharedPreferences(this)
+        val push = sp.getBoolean("push",false)
+        println("push=$push")
     }
 
 }

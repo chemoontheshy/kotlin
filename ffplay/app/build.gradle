@@ -8,7 +8,7 @@ android {
     compileSdkVersion 30
     buildToolsVersion "29.0.2"
     defaultConfig {
-        applicationId "com.qchemmo.ktplayer"
+        applicationId "com.qchemmo.ffplay"
         minSdkVersion 26
         targetSdkVersion 30
         versionCode 1
@@ -43,11 +43,4 @@ dependencies {
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'androidx.test:runner:1.1.1'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.1.1'
-    // anko
-    implementation "org.jetbrains.anko:anko:$anko_version"
-    // bottomBar
-    implementation 'com.roughike:bottom-bar:2.3.1'
-    // androidx.preference
-    implementation 'androidx.preference:preference:1.1.0'
-
 }
