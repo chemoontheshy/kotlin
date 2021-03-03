@@ -11,8 +11,9 @@ extern "C"
 }
 
 extern "C" JNIEXPORT jstring JNICALL
-Java_com_qchemmo_ffplay_MainActivity_stringFromJNI(
+Java_com_qchemmo_ffplay_ui_activity_MainActivity_stringFromJNI(
         JNIEnv *env,
         jobject /* this */) {
-    return env->NewStringUTF(avfilter_configuration());
+    return env->NewStringUTF(swresample_configuration());
 }
+

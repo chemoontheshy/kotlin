@@ -15,18 +15,26 @@ include_directories(include)
 set(FF ${CMAKE_CURRENT_SOURCE_DIR}/${ANDROID_ABI})
 
 add_library( # Sets the name of the library.
-        native-lib
+        play
 
         # Sets the library as a shared library.
         SHARED
 
         # Provides a relative path to your source file(s).
-        native-lib.cpp)
+        play.cpp)
 
 add_library(avcodec SHARED IMPORTED)
 set_target_properties(avcodec PROPERTIES IMPORTED_LOCATION ${FF}/libavcodec.so)
 add_library(avfilter SHARED IMPORTED)
 set_target_properties(avfilter PROPERTIES IMPORTED_LOCATION ${FF}/libavfilter.so)
+add_library(avformat SHARED IMPORTED)
+set_target_properties(avformat PROPERTIES IMPORTED_LOCATION ${FF}/libavformat.so)
+add_library(avutil SHARED IMPORTED)
+set_target_properties(avutil PROPERTIES IMPORTED_LOCATION ${FF}/libavutil.so)
+add_library(swresample SHARED IMPORTED)
+set_target_properties(swresample PROPERTIES IMPORTED_LOCATION ${FF}/libswresample.so)
+add_library(swscale SHARED IMPORTED)
+set_target_properties(swscale PROPERTIES IMPORTED_LOCATION ${FF}/libswscale.so)
 
 find_library( # Sets the name of the path variable.
         log-lib
@@ -40,11 +48,11 @@ find_library( # Sets the name of the path variable.
 # build script, prebuilt third-party libraries, or system libraries.
 
 target_link_libraries( # Specifies the target library.
-        native-lib
+        play
         avcodec
         avfilter
-#        avformat
-#        avutil
-#        swresample
-#        swscale
+        avformat
+        avutil
+        swresample
+        swscale
         ${log-lib})
