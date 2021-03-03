@@ -36,8 +36,9 @@ abstract class BaseActivity : AppCompatActivity(),AnkoLogger {
      */
     abstract fun getLayoutId(): Int
 
-    protected fun myToast(msg: String) {
+    protected fun myToast(msg: String): Boolean {
         runOnUiThread { toast(msg) }
+        return true
     }
 
     /**
