@@ -1,7 +1,8 @@
-package com.qchemmo.im
+package com.qchemmo.im.ui.activity
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import com.qchemmo.im.R
 
 class MainActivity : AppCompatActivity() {
 
