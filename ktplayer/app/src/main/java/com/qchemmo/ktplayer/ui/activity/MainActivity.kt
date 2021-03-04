@@ -1,5 +1,6 @@
 package com.qchemmo.ktplayer.ui.activity
 
+import android.view.Menu
 import android.view.MenuItem
 import android.widget.Toolbar
 import com.google.android.material.bottomnavigation.BottomNavigationItemView
@@ -24,15 +25,29 @@ class MainActivity : BaseActivity(), ToolBarManager {
     }
 
     override fun initListener() {
-        //设置tab切换监听
+//        设置tab切换监听
         bottomBar.setOnNavigationItemSelectedListener {
-            when(it.itemId){
-                R.id.Mv->{FragmentUtil.fragmentUtil.getFragment(R.id.Mv) }
+            val transaction = supportFragmentManager.beginTransaction()
+            FragmentUtil.fragmentUtil.getFragment(it.itemId)?.let { it1 ->
+                transaction.replace(
+                    R.id.container,
+                    it1, it.itemId.toString()
+                )
             }
+            transaction.commitNow()
+            return@setOnNavigationItemSelectedListener true
         }
+
     }
 
 
 }
 
-
+//val transaction = supportFragmentManager.beginTransaction()
+//FragmentUtil.fragmentUtil.getFragment(it.itemId)?.let { it1 ->
+//    transaction.replace(
+//        R.id.container,
+//        it1, it.itemId.toString()
+//    )
+//}
+//transaction.commitNow()

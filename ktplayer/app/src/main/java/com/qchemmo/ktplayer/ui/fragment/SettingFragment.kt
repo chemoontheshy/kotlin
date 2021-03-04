@@ -3,11 +3,9 @@ package com.qchemmo.ktplayer.ui.fragment
 import android.content.Intent
 import android.os.Bundle
 import androidx.preference.Preference
-import androidx.preference.PreferenceFragment
 import androidx.preference.PreferenceFragmentCompat
 import com.qchemmo.ktplayer.R
 import com.qchemmo.ktplayer.ui.activity.AboutActivity
-import org.jetbrains.anko.support.v4.toast
 
 
 class SettingFragment : PreferenceFragmentCompat() {
