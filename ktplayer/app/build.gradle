@@ -43,11 +43,15 @@ dependencies {
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'androidx.test:runner:1.1.1'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.1.1'
-    // anko
+    // 1.anko
     implementation "org.jetbrains.anko:anko:$anko_version"
-    // bottomBar
-    implementation 'com.roughike:bottom-bar:2.3.1'
-    // androidx.preference
+    // androidx.preference（已弃用）
     implementation 'androidx.preference:preference:1.1.0'
+    //2.网络请求
+    // define a BOM and its version
+    implementation(platform("com.squareup.okhttp3:okhttp-bom:4.9.0"))
+    // define any required OkHttp artifacts without version
+    implementation("com.squareup.okhttp3:okhttp")
+    implementation("com.squareup.okhttp3:logging-interceptor")
 
 }

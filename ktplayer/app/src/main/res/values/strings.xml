@@ -9,4 +9,6 @@
     <string name="mv">MV</string>
     <string name="vbang">V榜</string>
     <string name="yuedan">悦单</string>
+    <string name="song_list">歌单</string>
+    <string name="song_desc">简介</string>
 </resources>

@@ -46,14 +46,14 @@ abstract class BaseFragment : Fragment(),AnkoLogger {
     /**
      * 数据的初始化
      */
-    private fun initData() {
+    protected open fun initData() {
 
     }
 
     /**
      * adapter listener
      */
-    private fun initLister() {
+    protected open fun initLister() {
 
     }
 
