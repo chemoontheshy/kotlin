@@ -13,7 +13,7 @@ class MainActivity : BaseActivity() {
     }
 
     override fun initData() {
-        sample_text.text = test()
+
     }
 
 

@@ -3,8 +3,7 @@ package com.qchemmo.ktplayer.ui.activity
 import android.view.Menu
 import android.view.MenuItem
 import android.widget.Toolbar
-import com.google.android.material.bottomnavigation.BottomNavigationItemView
-import com.google.android.material.bottomnavigation.BottomNavigationView
+
 import com.qchemmo.ktplayer.R
 import com.qchemmo.ktplayer.base.BaseActivity
 import com.qchemmo.ktplayer.util.FragmentUtil
