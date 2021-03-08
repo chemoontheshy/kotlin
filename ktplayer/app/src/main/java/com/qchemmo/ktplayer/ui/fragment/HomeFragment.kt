@@ -9,7 +9,6 @@ import com.qchemmo.ktplayer.R
 import com.qchemmo.ktplayer.adapter.HomeAdapter
 import com.qchemmo.ktplayer.base.BaseFragment
 import kotlinx.android.synthetic.main.fragment_home.*
-import okhttp3.*
 import java.io.IOException
 
 class HomeFragment : BaseFragment() {
@@ -30,22 +29,22 @@ class HomeFragment : BaseFragment() {
     }
 
     private fun loadDatas() {
-        val path = "http://t.weather.sojson.com/api/weather/city/101030100"
-        val client = OkHttpClient()
-        val request = Request.Builder().url(path).get().build()
-        client.newCall(request).enqueue(object :Callback{
-            /**
-             * 在子线程中执行
-             */
-            override fun onFailure(call: Call, e: IOException) {
-                println("Get msg error"+Thread.currentThread().name)
-            }
-            /**
-             * 在子线程中执行
-             */
-            override fun onResponse(call: Call, response: Response) {
-                println("Get msg success"+Thread.currentThread().name)
-               }
-        })
+//        val path = "http://t.weather.sojson.com/api/weather/city/101030100"
+//        val client = OkHttpClient()
+//        val request = Request.Builder().url(path).get().build()
+//        client.newCall(request).enqueue(object :Callback{
+//            /**
+//             * 在子线程中执行
+//             */
+//            override fun onFailure(call: Call, e: IOException) {
+//                println("Get msg error"+Thread.currentThread().name)
+//            }
+//            /**
+//             * 在子线程中执行
+//             */
+//            override fun onResponse(call: Call, response: Response) {
+//                println("Get msg success"+Thread.currentThread().name)
+//               }
+//        })name
     }
 }
