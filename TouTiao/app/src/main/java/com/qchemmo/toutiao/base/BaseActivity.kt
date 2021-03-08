@@ -20,7 +20,7 @@ abstract class BaseActivity<V, P : BasePresenter<V>> : AppCompatActivity(), Base
         setContentView(getLayoutId())
         // 当mPresenter为空的时候，创建mPresenter
         if (mPresenter == null) {
-            mPresenter = createPresenter() as P
+            mPresenter = createPresenter()
         }
         // 绑定
         mPresenter!!.bindView(this as V)
