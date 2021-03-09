@@ -6,7 +6,7 @@ import com.orhanobut.logger.Logger
 
 /**
  * @ClassName: BaseApp
- * @Description:
+ * @Description:App的基类
  * @Author: chemoontheshy
  * @Date: 2021/3/8-12:03
  */

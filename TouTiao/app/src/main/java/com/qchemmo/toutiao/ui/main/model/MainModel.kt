@@ -10,6 +10,4 @@ import com.qchemmo.toutiao.mvp.model.BaseModel
  * @Author: chemoontheshy
  * @Date: 2021/3/8-16:30
  */
-class MainModel() {
-
-}
+data class MainModel(val admin:Int)

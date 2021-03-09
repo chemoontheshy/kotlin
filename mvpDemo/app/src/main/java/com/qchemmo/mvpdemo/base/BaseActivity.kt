@@ -29,7 +29,8 @@ abstract class BaseActivity<V, P : BasePresenter<V>> : AppCompatActivity(), Base
      * 2.初始化
      * 3.初始化数据
      * 4.创建createPresenter
-     * 5.当销毁时，解绑
+     * 5.让activity获得presenter的方法
+     * 6.当activity销毁时，解绑
      */
     protected abstract fun getLayoutId(): Int
     protected abstract fun init()

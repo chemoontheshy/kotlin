@@ -16,7 +16,7 @@ class MainActivity : BaseActivity<MainView,MainPresenter>(),MainView {
 
     override fun init() {
         test.setOnClickListener {
-            getPresenter()?.getTest("我是test")
+            getPresenter()?.getData()
         }
    }
 
