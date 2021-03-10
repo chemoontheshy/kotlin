@@ -3,17 +3,17 @@ package com.qchemmo.mvpdemo.http
 import android.util.Log
 import com.qchemmo.mvpdemo.base.Constants.WEATHER_URL
 import com.qchemmo.mvpdemo.base.Constants.WEATHER_URL_TEST
-import io.reactivex.Observer
-import io.reactivex.android.schedulers.AndroidSchedulers
-import io.reactivex.disposables.Disposable
-import io.reactivex.schedulers.Schedulers
+import io.reactivex.Observable
+import kotlinx.coroutines.*
 import okhttp3.*
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
 import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory
 import retrofit2.converter.gson.GsonConverterFactory
+import java.io.IOException
 import java.util.concurrent.TimeUnit
-import java.util.logging.Logger
+import kotlin.coroutines.resume
+import kotlin.coroutines.resumeWithException
 
 /**
  * @ClassName: HttpUtils
@@ -21,54 +21,50 @@ import java.util.logging.Logger
  * @Author: chemoontheshy
  * @Date: 2021/3/9-11:47
  */
-object HttpUtils {
-    private var mClient:OkHttpClient?=null
-    private fun isTest(isTest:Boolean):String = if (isTest) WEATHER_URL_TEST else WEATHER_URL
+object HttpUtils{
+    private var client: OkHttpClient? = null
 
-    fun <T>createApi(clazz: Class<T>):T = Retrofit.Builder()
-        .baseUrl(isTest(true))
-        .client(getClient())
-        .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
-        .build().create(clazz)
 
-    private fun getClient(): OkHttpClient? {
-        if (mClient == null) {
-            mClient = OkHttpClient.Builder()
-                //拦截器
-                .addInterceptor(getInterceptor())
-                .retryOnConnectionFailure(true)
-                .readTimeout(30, TimeUnit.SECONDS)
-                .connectTimeout(30, TimeUnit.SECONDS)
-                .build()
+    /**
+     * 因为okhttp3.ResponseBody的string方法是一个IO操作
+     * ，可能会比较耗时。所以我们通过一个挂起函数将这个操作放在后台线程执行。
+     */
+    private suspend fun getString(response: Response): String {
+        return withContext(Dispatchers.IO) {
+            response.body?.string() ?: "empty string"
         }
-        return mClient
-
     }
 
-    private fun getInterceptor(): Interceptor {
-        return HttpLoggingInterceptor().setLevel(HttpLoggingInterceptor.Level.BODY)
-    }
+    //为okhttp3增加协程
+    private suspend fun Call.awaitResponse(): Response {
+        return suspendCancellableCoroutine {
+            it.invokeOnCancellation {
+                cancel()
+            }
 
-    fun <T> sendHttp(ob:io.reactivex.Observable<T>,listener: ResponseListener<T>){
-        ob.subscribeOn(Schedulers.io())
-            .subscribeOn(AndroidSchedulers.mainThread())
-            .observeOn(AndroidSchedulers.mainThread())
-            .subscribe(object :Observer<T>{
-                override fun onComplete() {
-
+            enqueue(object : Callback {
+                override fun onFailure(call: Call, e: IOException) {
+                    it.resumeWithException(e)
                 }
 
-                override fun onSubscribe(d: Disposable) {
-                 }
+                override fun onResponse(call: Call, response: Response) {
+                    it.resume(response)
+                    Log.d("TAG", "onResponse: $response")
 
-                override fun onNext(t: T) {
-                    listener.onSuccess(t)
-                }
-
-                override fun onError(e: Throwable) {
-                    listener.onFail(e.message.toString())
                 }
             })
+        }
+    }
+    suspend fun sendHttp(url:String): String? {
+        val builder:OkHttpClient.Builder = OkHttpClient.Builder()
+            .readTimeout(5, TimeUnit.SECONDS)
+            .writeTimeout(10,TimeUnit.SECONDS)
+        client = builder.build()
+        val request = Request.Builder()
+            .url(url)
+            .build()
+        val response = client?.newCall(request)?.awaitResponse()
+        return response?.let { getString(it) }
     }
 
 }

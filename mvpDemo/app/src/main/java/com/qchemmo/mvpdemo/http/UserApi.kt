@@ -15,7 +15,5 @@ import java.util.*
  * @Date: 2021/3/9-11:50
  */
 interface UserApi {
-    @GET("?city=长沙&type=1")
-    fun getTest():Observable<BaseModel<>>
 
 }
