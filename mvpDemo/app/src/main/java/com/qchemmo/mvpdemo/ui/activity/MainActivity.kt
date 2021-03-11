@@ -17,7 +17,7 @@ class MainActivity : BaseActivity<MainView,MainPresenter>(),MainView {
 
     override fun init() {
         test.setOnClickListener {
-            getPresenter()?.getWeather()
+            getPresenter()?.getWeather2()
 
         }
    }
@@ -32,9 +32,6 @@ class MainActivity : BaseActivity<MainView,MainPresenter>(),MainView {
    }
 
     override fun setError(err: String) {
-    }
-    override fun onDestroy() {
-        super.onDestroy()
     }
 
 }

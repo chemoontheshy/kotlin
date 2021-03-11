@@ -15,5 +15,7 @@ import java.util.*
  * @Date: 2021/3/9-11:50
  */
 interface UserApi {
+    @GET("tianqi?city=长沙&type=1")
+    suspend fun getWeather2():BaseModel<MainModel>
 
 }

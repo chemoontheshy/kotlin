@@ -66,5 +66,9 @@ object HttpUtils{
         val response = client?.newCall(request)?.awaitResponse()
         return response?.let { getString(it) }
     }
+    fun userApi(): UserApi = Retrofit.Builder()
+        .baseUrl(WEATHER_URL_TEST)
+        .addConverterFactory(GsonConverterFactory.create())
+        .build().create(UserApi::class.java)
 
 }
