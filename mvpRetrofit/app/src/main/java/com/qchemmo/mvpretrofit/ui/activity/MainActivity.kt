@@ -25,7 +25,7 @@ class MainActivity :BaseActivity<MainView,MainPresenter>(),MainView {
      * */
     override fun init() {
         btn_test.setOnClickListener {
-            getPresetter()?.setText()
+            getPresetter()?.getWeather()
         }
     }
 

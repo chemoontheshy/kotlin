@@ -22,7 +22,6 @@ class MainPresenter:BasePresenter<MainView>() {
                    getBaseView()?.setData(data)
                }
             }
-
            override fun onFail(err: String) {
                getBaseView()?.setData(err)
                 }
