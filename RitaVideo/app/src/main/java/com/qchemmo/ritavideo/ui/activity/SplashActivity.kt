@@ -1,6 +1,5 @@
 package com.qchemmo.ritavideo.ui.activity
 import android.content.Intent
-import androidx.core.view.ViewCompat
 import com.qchemmo.ritavideo.R
 import com.qchemmo.ritavideo.base.BaseActivity
 import com.qchemmo.ritavideo.ui.presenter.SplashPresenter
@@ -22,13 +21,13 @@ class SplashActivity :BaseActivity<SplashView,SplashPresenter>(),SplashView {
     }
 
     override fun initData() {
-        getPresetter()?.animate(imageView)
+        getPresenter()?.animate(imageView)
     }
 
     override fun createPresenter(): SplashPresenter? = SplashPresenter()
 
     override fun <T> setData(data: T) {
-        var intent : Intent = Intent(this,MainActivity::class.java)
+        val intent : Intent = Intent(this,MainActivity::class.java)
         startActivity(intent)
         finish()
     }

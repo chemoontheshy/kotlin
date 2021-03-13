@@ -1,3 +1,8 @@
 <resources>
     <string name="app_name">RitaVideo</string>
+    <string name="play">播放</string>
+    <string name="picture">照片</string>
+    <string name="video">录像</string>
+    <string name="about">关于</string>
+    <string name="tv_play">Play</string>
 </resources>

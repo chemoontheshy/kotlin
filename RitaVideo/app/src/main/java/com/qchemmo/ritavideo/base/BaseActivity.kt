@@ -6,6 +6,8 @@ import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import com.qchemmo.ritavideo.mvp.presenter.BasePresenter
 import com.qchemmo.ritavideo.mvp.view.BaseView
+import com.qchemmo.ritavideo.ui.activity.MainActivity
+import com.qchemmo.ritavideo.base.BaseActivity as BaseActivity
 
 /**
  * @ClassName: BaseActivity
@@ -37,14 +39,10 @@ abstract class BaseActivity<V,P: BasePresenter<V>>: AppCompatActivity(), BaseVie
     protected abstract fun init()
     protected abstract fun initData()
     protected abstract fun createPresenter(): P?
-    fun getPresetter() =mPresenter
+    fun getPresenter() =mPresenter
     override fun onDestroy() {
         super.onDestroy()
         mPresenter?.unbindView()
-    }
-    fun startActivityAndFinish(activity){
-        val intent : Intent = Intent(this,activity)
-        startActivity(intent)
     }
 
 }
