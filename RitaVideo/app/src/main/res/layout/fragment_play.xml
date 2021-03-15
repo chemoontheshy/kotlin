@@ -3,10 +3,39 @@
               android:orientation="vertical"
               android:layout_width="match_parent"
               android:layout_height="match_parent">
+    <SurfaceView
+            android:id="@+id/sfv_video"
+            android:background="@color/colorPrimaryDark"
+            android:layout_width="match_parent"
+            android:layout_height="400dp"/>
+    <LinearLayout
+            android:layout_marginTop="10dp"
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+        <Button
+                style="?android:attr/button"
+                android:id="@+id/btn_play"
+                android:text="@string/btn_play"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="wrap_content"/>
+        <Button
+                style="?android:attr/button"
+                android:id="@+id/btn_stop"
+                android:text="@string/btn_stop"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="wrap_content"/>
+
+
+    </LinearLayout>
     <TextView
-            android:id="@+id/fragment_play"
-            android:text="@string/tv_play"
+            android:gravity="center"
+            android:id="@+id/tv_test"
+            android:text="@string/tv_about"
             android:layout_width="match_parent"
             android:layout_height="match_parent"/>
+
 
 </LinearLayout>
