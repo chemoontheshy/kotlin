@@ -23,12 +23,9 @@ class MainActivity : AppCompatActivity() {
         val mediaController = MediaController(this)
         mediaController.setAnchorView(videoView)
         //specify the location of media file
-        val file =File(Environment.getExternalStorageDirectory(),"kotlinVideo")
-        if (!file.exists()){
-            Log.e("test","not exists")
-        }
 
-        val uri:Uri = parse(this.getExternalFilesDir("kotlinVideo/test.mp4")+File.separator+"kotlinVideo"+File.separator+"text.mp4")
+        Log.e("te",Environment.getExternalStorageState().toString())
+        val uri:Uri = parse(getExternalFilesDir(null)?.path+"/test.mp4")
         Log.e("uri",uri.toString())
         videoView.setMediaController(mediaController)
         videoView.setVideoURI(uri)
