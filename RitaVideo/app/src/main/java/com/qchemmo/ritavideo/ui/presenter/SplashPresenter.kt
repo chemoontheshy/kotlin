@@ -1,14 +1,13 @@
 package com.qchemmo.ritavideo.ui.presenter
 
-import android.content.Intent
+import android.content.pm.PackageManager
 import android.view.View
-import androidx.core.content.ContextCompat.startActivity
+import android.widget.Toast
 import androidx.core.view.ViewCompat
 import androidx.core.view.ViewPropertyAnimatorListener
-import com.qchemmo.ritavideo.R
 import com.qchemmo.ritavideo.mvp.presenter.BasePresenter
-import com.qchemmo.ritavideo.ui.activity.MainActivity
 import com.qchemmo.ritavideo.ui.view.SplashView
+import com.qchemmo.ritavideo.ui.activity.SplashActivity
 
 /**
  * @ClassName: SplashPresenter
@@ -16,6 +15,7 @@ import com.qchemmo.ritavideo.ui.view.SplashView
  * @Author: chemoontheshy
  * @Date: 2021/3/12-16:39
  */
+val myPermission = arrayOf(android.Manifest.permission.WRITE_EXTERNAL_STORAGE,android.Manifest.permission.READ_EXTERNAL_STORAGE)
 class SplashPresenter: BasePresenter<SplashView>(), ViewPropertyAnimatorListener {
     fun animate(view: View){
         ViewCompat.animate(view).scaleX(1.5f).scaleY(1.5f).setListener(this).duration = 2000
@@ -30,6 +30,8 @@ class SplashPresenter: BasePresenter<SplashView>(), ViewPropertyAnimatorListener
 
     override fun onAnimationStart(view: View?) {
     }
+
+
 
 
 }

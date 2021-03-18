@@ -1,13 +1,15 @@
 package com.qchemmo.ritavideo.base
 
 import android.app.Activity
+import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
+import com.qchemmo.ritavideo.Permission.PermissionUtils
+import com.qchemmo.ritavideo.http.HttpUtils
 import com.qchemmo.ritavideo.mvp.presenter.BasePresenter
 import com.qchemmo.ritavideo.mvp.view.BaseView
 import com.qchemmo.ritavideo.ui.activity.MainActivity
-import com.qchemmo.ritavideo.base.BaseActivity as BaseActivity
 
 /**
  * @ClassName: BaseActivity
@@ -43,6 +45,18 @@ abstract class BaseActivity<V,P: BasePresenter<V>>: AppCompatActivity(), BaseVie
     override fun onDestroy() {
         super.onDestroy()
         mPresenter?.unbindView()
+    }
+
+    fun startAndFinish(toActivity: Class<MainActivity>){
+        val intent : Intent = Intent(this,toActivity)
+        startActivity(intent)
+        finish()
+
+    }
+
+    override fun onRequestPermissionsResult(requestCode: Int, permissions: Array<out String>, grantResults: IntArray) {
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults)
+        PermissionUtils.onRequestPermissionsResult(requestCode,permissions,grantResults)
     }
 
 }

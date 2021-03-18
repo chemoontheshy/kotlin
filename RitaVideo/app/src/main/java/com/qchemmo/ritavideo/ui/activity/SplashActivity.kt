@@ -1,5 +1,7 @@
 package com.qchemmo.ritavideo.ui.activity
 import android.content.Intent
+import android.util.Log
+import com.qchemmo.ritavideo.Permission.PermissionUtils
 import com.qchemmo.ritavideo.R
 import com.qchemmo.ritavideo.base.BaseActivity
 import com.qchemmo.ritavideo.ui.presenter.SplashPresenter
@@ -22,14 +24,17 @@ class SplashActivity :BaseActivity<SplashView,SplashPresenter>(),SplashView {
 
     override fun initData() {
         getPresenter()?.animate(imageView)
+
     }
 
     override fun createPresenter(): SplashPresenter? = SplashPresenter()
 
     override fun <T> setData(data: T) {
-        val intent : Intent = Intent(this,MainActivity::class.java)
-        startActivity(intent)
-        finish()
+        PermissionUtils.readAndWrite(this) {
+            startAndFinish(MainActivity::class.java)
+        }
+
+
     }
 
     override fun setError(err: String) {

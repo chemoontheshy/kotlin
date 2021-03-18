@@ -10,8 +10,6 @@ import android.util.Log
 import android.widget.MediaController
 import android.widget.Toast
 import android.widget.VideoView
-import kotlinx.android.synthetic.main.activity_main.*
-import java.io.File
 
 const val REQUEST_WRITE_EXTERNAL_STORAGE = 1
 class MainActivity : AppCompatActivity() {
