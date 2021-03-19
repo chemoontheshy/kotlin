@@ -35,16 +35,21 @@ class PictureFragment:BaseFragment() {
 
     }
 
-
-
-    override fun init() {
+    override fun onActivityCreated(savedInstanceState: Bundle?) {
+        super.onActivityCreated(savedInstanceState)
         val mediaController = MediaController(context)
         mediaController.setAnchorView(videoView)
-        val uri:Uri = parse(Environment.getExternalStoragePublicDirectory(".kotlin/test.mp4").path)
+        val uri:Uri = parse(Environment.getExternalStoragePublicDirectory("/kotlin/test.mp4").path)
         videoView.setMediaController(mediaController)
         videoView.setVideoURI(uri)
         videoView.requestFocus()
         videoView.start()
+    }
+
+
+
+    override fun init() {
+
 
     }
 }
