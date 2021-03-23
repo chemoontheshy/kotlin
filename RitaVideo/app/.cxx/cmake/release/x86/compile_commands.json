@@ -1,0 +1,7 @@
+[
+{
+  "directory": "G:/gitroom/Kotlin/RitaVideo/app/.cxx/cmake/release/x86",
+  "command": "C:\\Users\\Administrator\\AppData\\Local\\Android\\Sdk\\ndk-bundle\\toolchains\\llvm\\prebuilt\\windows-x86_64\\bin\\clang++.exe --target=i686-none-linux-android26 --gcc-toolchain=C:/Users/Administrator/AppData/Local/Android/Sdk/ndk-bundle/toolchains/llvm/prebuilt/windows-x86_64 --sysroot=C:/Users/Administrator/AppData/Local/Android/Sdk/ndk-bundle/toolchains/llvm/prebuilt/windows-x86_64/sysroot  -Dplay_EXPORTS -IG:/gitroom/Kotlin/RitaVideo/app/src/main/cpp/include  -g -DANDROID -fdata-sections -ffunction-sections -funwind-tables -fstack-protector-strong -no-canonical-prefixes -D_FORTIFY_SOURCE=2 -Wformat -Werror=format-security   -O2 -DNDEBUG  -fPIC   -o CMakeFiles\\play.dir\\play.cpp.o -c G:\\gitroom\\Kotlin\\RitaVideo\\app\\src\\main\\cpp\\play.cpp",
+  "file": "G:\\gitroom\\Kotlin\\RitaVideo\\app\\src\\main\\cpp\\play.cpp"
+}
+]

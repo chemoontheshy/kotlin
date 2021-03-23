@@ -1,4 +1,5 @@
 package com.qchemmo.ritavideo.ui.fragment
+import android.os.Environment
 import android.view.View
 import com.qchemmo.ritavideo.R
 import com.qchemmo.ritavideo.base.BaseFragment
@@ -23,13 +24,15 @@ class PlayFragment:BaseFragment() {
     }
 
     override fun initListener() {
+        val url = Environment.getExternalStoragePublicDirectory("/kotlin/test.mp4")
         btn_play.setOnClickListener{
-            tv_test.text = ffmpeg()
+            tv_test.text = putUrl(url.toString())
         }
     }
 
     external fun test():String
     external fun ffmpeg():String
+    external fun putUrl(video_url:String):String
 
     companion object {
 

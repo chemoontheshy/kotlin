@@ -1,0 +1,3 @@
+G:/gitroom/Kotlin/RitaVideo/app/.cxx/cmake/debug/x86_64/CMakeFiles/play.dir
+G:/gitroom/Kotlin/RitaVideo/app/.cxx/cmake/debug/x86_64/CMakeFiles/edit_cache.dir
+G:/gitroom/Kotlin/RitaVideo/app/.cxx/cmake/debug/x86_64/CMakeFiles/rebuild_cache.dir

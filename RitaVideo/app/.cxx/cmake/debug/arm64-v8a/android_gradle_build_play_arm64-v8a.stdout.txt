@@ -1,0 +1,10 @@
+ninja: Entering directory `G:\gitroom\Kotlin\RitaVideo\app\.cxx\cmake\debug\arm64-v8a'
+[1/2] Building CXX object CMakeFiles/play.dir/play.cpp.o
+G:/gitroom/Kotlin/RitaVideo/app/src/main/cpp/play.cpp:80:20: warning: incomplete format specifier [-Wformat]
+    LOGW("this is s%",video_url);
+                   ^
+G:/gitroom/Kotlin/RitaVideo/app/src/main/cpp/play.cpp:10:61: note: expanded from macro 'LOGW'
+#define LOGW(...) __android_log_print(ANDROID_LOG_WARN,TAG ,__VA_ARGS__) // 定义LOGW类型
+                                                            ^~~~~~~~~~~
+1 warning generated.
+[2/2] Linking CXX shared library G:\gitroom\Kotlin\RitaVideo\app\build\intermediates\cmake\debug\obj\arm64-v8a\libplay.so

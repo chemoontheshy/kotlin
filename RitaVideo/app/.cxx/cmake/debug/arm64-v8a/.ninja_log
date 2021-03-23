@@ -1,0 +1,7 @@
+# ninja log v5
+1	161	638170907	CMakeFiles/play.dir/play.cpp.o	18be6c53306ef67a
+162	226	638170907	G:/gitroom/Kotlin/RitaVideo/app/build/intermediates/cmake/debug/obj/arm64-v8a/libplay.so	9eaad39013ebfa3c
+2	509	638187747	CMakeFiles/play.dir/play.cpp.o	18be6c53306ef67a
+510	566	638187747	G:/gitroom/Kotlin/RitaVideo/app/build/intermediates/cmake/debug/obj/arm64-v8a/libplay.so	9eaad39013ebfa3c
+2	540	638193382	CMakeFiles/play.dir/play.cpp.o	18be6c53306ef67a
+540	620	638193382	G:/gitroom/Kotlin/RitaVideo/app/build/intermediates/cmake/debug/obj/arm64-v8a/libplay.so	9eaad39013ebfa3c

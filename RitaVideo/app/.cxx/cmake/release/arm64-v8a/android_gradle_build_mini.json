@@ -1,0 +1,27 @@
+{
+  "buildFiles": [
+    "G:\\gitroom\\Kotlin\\RitaVideo\\app\\src\\main\\cpp\\CMakeLists.txt",
+    "C:\\Users\\Administrator\\AppData\\Local\\Android\\Sdk\\ndk-bundle\\build\\cmake\\android.toolchain.cmake",
+    "C:\\Users\\Administrator\\AppData\\Local\\Android\\Sdk\\ndk-bundle\\build\\cmake\\platforms.cmake"
+  ],
+  "cleanCommands": [
+    "C:\\Users\\Administrator\\AppData\\Local\\Android\\Sdk\\cmake\\3.10.2.4988404\\bin\\ninja.exe -C \"G:\\gitroom\\Kotlin\\RitaVideo\\app\\.cxx\\cmake\\release\\arm64-v8a\" clean"
+  ],
+  "buildTargetsCommand": "C:\\Users\\Administrator\\AppData\\Local\\Android\\Sdk\\cmake\\3.10.2.4988404\\bin\\ninja.exe  -C \"G:\\gitroom\\Kotlin\\RitaVideo\\app\\.cxx\\cmake\\release\\arm64-v8a\" {LIST_OF_TARGETS_TO_BUILD}",
+  "libraries": {
+    "play-Release-arm64-v8a": {
+      "artifactName": "play",
+      "buildCommand": "C:\\Users\\Administrator\\AppData\\Local\\Android\\Sdk\\cmake\\3.10.2.4988404\\bin\\ninja.exe -C \"G:\\gitroom\\Kotlin\\RitaVideo\\app\\.cxx\\cmake\\release\\arm64-v8a\" play",
+      "abi": "arm64-v8a",
+      "output": "G:\\gitroom\\Kotlin\\RitaVideo\\app\\build\\intermediates\\cmake\\release\\obj\\arm64-v8a\\libplay.so",
+      "runtimeFiles": [
+        "G:\\gitroom\\Kotlin\\RitaVideo\\app\\src\\main\\cpp\\arm64-v8a\\libavcodec.so",
+        "G:\\gitroom\\Kotlin\\RitaVideo\\app\\src\\main\\cpp\\arm64-v8a\\libavfilter.so",
+        "G:\\gitroom\\Kotlin\\RitaVideo\\app\\src\\main\\cpp\\arm64-v8a\\libavformat.so",
+        "G:\\gitroom\\Kotlin\\RitaVideo\\app\\src\\main\\cpp\\arm64-v8a\\libavutil.so",
+        "G:\\gitroom\\Kotlin\\RitaVideo\\app\\src\\main\\cpp\\arm64-v8a\\libswresample.so",
+        "G:\\gitroom\\Kotlin\\RitaVideo\\app\\src\\main\\cpp\\arm64-v8a\\libswscale.so"
+      ]
+    }
+  }
+}

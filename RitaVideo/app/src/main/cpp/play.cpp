@@ -24,6 +24,8 @@ extern "C"
 
 void initLib() {
     // 进程锁
+    pthread_mutex_t *mutex;
+    pthread_mutex_lock(mutex);
     static bool isInit = false;
     if(!isInit){
         avformat_network_init();
@@ -36,7 +38,7 @@ void initLib() {
 extern "C" JNIEXPORT jstring JNICALL
 Java_com_qchemmo_ritavideo_ui_fragment_PlayFragment_test(
         JNIEnv *env,
-        jobject /* this */) {
+        jobject thiz,jstring path,jobject surface) {
     return env->NewStringUTF(swresample_configuration());
 }
 
@@ -70,4 +72,11 @@ Java_com_qchemmo_ritavideo_ui_fragment_PlayFragment_ffmpeg(
     initLib();
     return env->NewStringUTF(swresample_configuration());
 
+}
+extern "C"
+JNIEXPORT jstring JNICALL
+Java_com_qchemmo_ritavideo_ui_fragment_PlayFragment_putUrl(JNIEnv *env, jobject thiz,
+                                                           jstring video_url) {
+    const char *path = env->GetStringUTFChars(video_url,0);
+    return env->NewStringUTF(path);
 }

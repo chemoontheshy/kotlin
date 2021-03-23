@@ -1,0 +1,27 @@
+{
+  "buildFiles": [
+    "G:\\gitroom\\Kotlin\\RitaVideo\\app\\src\\main\\cpp\\CMakeLists.txt",
+    "C:\\Users\\Administrator\\AppData\\Local\\Android\\Sdk\\ndk-bundle\\build\\cmake\\android.toolchain.cmake",
+    "C:\\Users\\Administrator\\AppData\\Local\\Android\\Sdk\\ndk-bundle\\build\\cmake\\platforms.cmake"
+  ],
+  "cleanCommands": [
+    "C:\\Users\\Administrator\\AppData\\Local\\Android\\Sdk\\cmake\\3.10.2.4988404\\bin\\ninja.exe -C \"G:\\gitroom\\Kotlin\\RitaVideo\\app\\.cxx\\cmake\\release\\armeabi-v7a\" clean"
+  ],
+  "buildTargetsCommand": "C:\\Users\\Administrator\\AppData\\Local\\Android\\Sdk\\cmake\\3.10.2.4988404\\bin\\ninja.exe  -C \"G:\\gitroom\\Kotlin\\RitaVideo\\app\\.cxx\\cmake\\release\\armeabi-v7a\" {LIST_OF_TARGETS_TO_BUILD}",
+  "libraries": {
+    "play-Release-armeabi-v7a": {
+      "artifactName": "play",
+      "buildCommand": "C:\\Users\\Administrator\\AppData\\Local\\Android\\Sdk\\cmake\\3.10.2.4988404\\bin\\ninja.exe -C \"G:\\gitroom\\Kotlin\\RitaVideo\\app\\.cxx\\cmake\\release\\armeabi-v7a\" play",
+      "abi": "armeabi-v7a",
+      "output": "G:\\gitroom\\Kotlin\\RitaVideo\\app\\build\\intermediates\\cmake\\release\\obj\\armeabi-v7a\\libplay.so",
+      "runtimeFiles": [
+        "G:\\gitroom\\Kotlin\\RitaVideo\\app\\src\\main\\cpp\\armeabi-v7a\\libavcodec.so",
+        "G:\\gitroom\\Kotlin\\RitaVideo\\app\\src\\main\\cpp\\armeabi-v7a\\libavfilter.so",
+        "G:\\gitroom\\Kotlin\\RitaVideo\\app\\src\\main\\cpp\\armeabi-v7a\\libavformat.so",
+        "G:\\gitroom\\Kotlin\\RitaVideo\\app\\src\\main\\cpp\\armeabi-v7a\\libavutil.so",
+        "G:\\gitroom\\Kotlin\\RitaVideo\\app\\src\\main\\cpp\\armeabi-v7a\\libswresample.so",
+        "G:\\gitroom\\Kotlin\\RitaVideo\\app\\src\\main\\cpp\\armeabi-v7a\\libswscale.so"
+      ]
+    }
+  }
+}
