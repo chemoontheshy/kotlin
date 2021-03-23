@@ -31,7 +31,9 @@ class SplashActivity :BaseActivity<SplashView,SplashPresenter>(),SplashView {
 
     override fun <T> setData(data: T) {
         PermissionUtils.readAndWrite(this) {
-            startAndFinish(MainActivity::class.java)
+            val intent : Intent = Intent(this,MainActivity::class.java)
+            startActivity(intent)
+            finish()
         }
 
 

@@ -24,11 +24,12 @@ class PlayFragment:BaseFragment() {
 
     override fun initListener() {
         btn_play.setOnClickListener{
-            tv_test.text = test()
+            tv_test.text = ffmpeg()
         }
     }
 
     external fun test():String
+    external fun ffmpeg():String
 
     companion object {
 

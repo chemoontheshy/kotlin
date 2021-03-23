@@ -39,6 +39,7 @@ class MainActivity : BaseActivity<MainView,MainPresenter>(),MainView{
             supportFragmentManager.beginTransaction().replace(R.id.container,
                 it,it.toString()).commitNow()
         }
+
         getPresenter()?.setToolBarTitle("KTPlayer")
     }
 

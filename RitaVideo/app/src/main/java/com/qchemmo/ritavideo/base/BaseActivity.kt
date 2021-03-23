@@ -48,9 +48,7 @@ abstract class BaseActivity<V,P: BasePresenter<V>>: AppCompatActivity(), BaseVie
     }
 
     fun startAndFinish(toActivity: Class<MainActivity>){
-        val intent : Intent = Intent(this,toActivity)
-        startActivity(intent)
-        finish()
+
 
     }
 
