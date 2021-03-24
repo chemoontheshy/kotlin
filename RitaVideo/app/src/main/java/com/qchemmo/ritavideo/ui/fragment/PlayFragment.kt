@@ -30,9 +30,8 @@ class PlayFragment:BaseFragment() {
         }
     }
 
-    external fun test():String
     external fun ffmpeg():String
-    external fun putUrl(video_url:String):String
+    private external fun putUrl(video_url:String):String
 
     companion object {
 
