@@ -1,82 +1,88 @@
 //
 // Created by Administrator on 2021/3/3.
 //
-#include <jni.h>
-#include <iostream>
-#include <android/log.h>
-#define TAG "C++" // 这个是自定义的LOG的标识
-#define LOGD(...) __android_log_print(ANDROID_LOG_DEBUG,TAG ,__VA_ARGS__) // 定义LOGD类型
-#define LOGI(...) __android_log_print(ANDROID_LOG_INFO,TAG ,__VA_ARGS__) // 定义LOGI类型
-#define LOGW(...) __android_log_print(ANDROID_LOG_WARN,TAG ,__VA_ARGS__) // 定义LOGW类型
-#define LOGE(...) __android_log_print(ANDROID_LOG_ERROR,TAG ,__VA_ARGS__) // 定义LOGE类型
-#define LOGF(...) __android_log_print(ANDROID_LOG_FATAL,TAG ,__VA_ARGS__) // 定义LOGF类型
 
-using namespace std;
-extern "C"
-{
-#include "include/libavcodec/avcodec.h"
-#include "include/libavfilter/avfilter.h"
-#include "include/libavformat/avformat.h"
-#include "include/libavutil/avutil.h"
-#include "include/libswresample/swresample.h"
-#include "include/libswscale/swscale.h"
-}
+#include "playheader.h"
+
 
 void initLib() {
     // 进程锁
-    pthread_mutex_t *mutex;
+    pthread_mutex_t *mutex = nullptr;
     pthread_mutex_lock(mutex);
     static bool isInit = false;
-    if(!isInit){
+    if (!isInit) {
         avformat_network_init();
         isInit = true;
         unsigned version = avcodec_version();
-        LOGE("version is %d",version);
+        LOGE("version is %d", version);
     }
-}
-
-extern "C" JNIEXPORT jstring JNICALL
-Java_com_qchemmo_ritavideo_ui_fragment_PlayFragment_test(
-        JNIEnv *env,
-        jobject thiz,jstring path,jobject surface) {
-    return env->NewStringUTF(swresample_configuration());
 }
 
 extern "C" JNIEXPORT jstring JNICALL
 Java_com_qchemmo_ritavideo_ui_fragment_PlayFragment_ffmpeg(
         JNIEnv *env,
         jobject /* this */) {
-    int frameFinish; //一帧完成
-    int videoWidth;  //视频宽度
-    int videoHeight; //视频高度
-    int oldWidth;    //上次视频宽度
-    int oldHeight;   //上次视频高度
-    int videoStreamIndex; //视频流索引
-    int audioStreamIndex; //音频流索引
-    int count;
-
-    char *url;            //视频流地址
-
-    uint8_t *out_buffer; //存储解码后照片的buffer
-    AVPacket *packet;    //包对象
-    AVFrame *pFrame;    //输入帧对象
-    AVFrame *pFrameRGB; //输出帧对象
-    AVFormatContext *pFormatContext; //格式上下文
-    AVCodecContext *videoCodec; //视频解码器
-    AVCodecContext *audioCodec; //音频解码器
-    SwsContext *img_convert_ctx; //处理图片数据对象
-
-    AVDictionary *avDictionary;      //参数对象
-    AVCodec *videoDecoder;   //视频解码
-    AVCodec *audioDecoder;   //音频解码
     initLib();
     return env->NewStringUTF(swresample_configuration());
 
 }
+
 extern "C"
 JNIEXPORT jstring JNICALL
-Java_com_qchemmo_ritavideo_ui_fragment_PlayFragment_putUrl(JNIEnv *env, jobject thiz,
-                                                           jstring video_url) {
-    const char *path = env->GetStringUTFChars(video_url,0);
+Java_com_qchemmo_ritavideo_ui_fragment_PlayFragment_putUrl(JNIEnv *env,
+        jobject thiz,
+        jstring video_url){
+    path = env->GetStringUTFChars(video_url, 0);
+    initLib();
+    //初始化数据
+    stopped = false;
+    isPlay = false;
+
+    frameFinish = false;
+    videoWidth =  0;
+    videoHeight = 0;
+    oldWidth = 0;
+    oldHeight =0;
+    countFrame = 0;
+    videoStreamIndex = -1;
+    audioStreamIndex = -1;
+
+    out_buffer =nullptr;
+    packet = nullptr;
+    pFrame = nullptr;
+    pFrameRGB = nullptr;
+    pFormatCtx = nullptr;
+    videoCodec = nullptr;
+    audioCodec = nullptr;
+    img_convert_ctx = nullptr;
+    avdic = nullptr;
+    videoDecoder = nullptr;
+    audioDecoder = nullptr;
+
+    /*
+     * 设置参数
+     */
+    //在打开码流前指定各种参数比如:探测时间/超时时间/最大延时等
+    //设置缓存大小,1080p可将值调大
+    av_dict_set(&avdic, "buffer_size", "8192000", 0);
+    //以tcp方式打开,如果以udp方式打开将tcp替换为udp
+    av_dict_set(&avdic, "rtsp_transport", "tcp", 0);
+    //设置超时断开连接时间,单位微秒,3000000表示3秒
+    av_dict_set(&avdic, "stimeout", "3000000", 0);
+    //设置最大时延,单位微秒,1000000表示1秒
+    av_dict_set(&avdic, "max_delay", "1000000", 0);
+    //自动开启线程数
+    av_dict_set(&avdic, "threads", "auto", 0);
+
+    /*
+     * 打开视频
+     */
+    pFormatCtx = avformat_alloc_context();
+    int result = avformat_open_input(&pFormatCtx,path, nullptr,&avdic);
+    if(result<0){
+        LOG
+    }
+
+
     return env->NewStringUTF(path);
 }
