@@ -1,5 +1,6 @@
 package com.qchemmo.ritavideo.view
 
+import android.util.Log
 import android.view.Surface
 import android.view.SurfaceHolder
 import android.view.SurfaceView
@@ -11,6 +12,11 @@ import android.view.SurfaceView
  * @Date: 2021/3/15-15:39
  */
 class PlayView:SurfaceHolder.Callback {
+    companion object {
+        init {
+            System.loadLibrary("play")
+        }
+    }
 
     private var surfaceHolder : SurfaceHolder? = null
 
@@ -28,4 +34,10 @@ class PlayView:SurfaceHolder.Callback {
 
     override fun surfaceCreated(p0: SurfaceHolder) {
     }
+
+    fun start(path: String) {
+        Log.e("path",path)
+        nativeStart(path,surfaceHolder!!.surface)
+    }
+    private external fun nativeStart(getPath:String, surface: Surface)
 }

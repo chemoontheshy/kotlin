@@ -172,7 +172,6 @@
       "project": {
         "compilerSettingsCacheFolder": "G:\\gitroom\\Kotlin\\RitaVideo\\.cxx",
         "cxxFolder": "G:\\gitroom\\Kotlin\\RitaVideo\\.cxx",
-        "ideBuildTargetAbi": "arm64-v8a,armeabi-v7a,armeabi",
         "isBuildOnlyTargetAbiEnabled": true,
         "isCmakeBuildCohabitationEnabled": false,
         "isNativeCompilerSettingsCacheEnabled": false,

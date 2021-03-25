@@ -1,3 +1,2 @@
 ninja: Entering directory `G:\gitroom\Kotlin\RitaVideo\app\.cxx\cmake\debug\arm64-v8a'
-[1/2] Building CXX object CMakeFiles/play.dir/play.cpp.o
-[2/2] Linking CXX shared library G:\gitroom\Kotlin\RitaVideo\app\build\intermediates\cmake\debug\obj\arm64-v8a\libplay.so
+ninja: no work to do.

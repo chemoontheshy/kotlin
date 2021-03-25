@@ -15,6 +15,7 @@
 #include <jni.h>
 #include <iostream>
 #include <android/log.h>
+#include <android/native_window_jni.h>
 
 using namespace std;
 extern "C"
@@ -23,6 +24,7 @@ extern "C"
 #include "include/libavfilter/avfilter.h"
 #include "include/libavformat/avformat.h"
 #include "include/libavutil/avutil.h"
+#include "include/libavutil/imgutils.h"
 #include "include/libswresample/swresample.h"
 #include "include/libswscale/swscale.h"
 }
