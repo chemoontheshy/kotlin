@@ -4,6 +4,7 @@ import android.util.Log
 import android.view.Surface
 import android.view.SurfaceHolder
 import android.view.SurfaceView
+import kotlin.concurrent.thread
 
 /**
  * @ClassName: PlayView
@@ -11,7 +12,7 @@ import android.view.SurfaceView
  * @Author: chemoontheshy
  * @Date: 2021/3/15-15:39
  */
-class PlayView:SurfaceHolder.Callback {
+class PlayView:SurfaceHolder.Callback{
     companion object {
         init {
             System.loadLibrary("play")
@@ -21,7 +22,6 @@ class PlayView:SurfaceHolder.Callback {
     private var surfaceHolder : SurfaceHolder? = null
 
     fun setSurfaceView(surfaceView: SurfaceView){
-        surfaceHolder?.removeCallback(this)
         surfaceHolder = surfaceView.holder
     }
 
@@ -36,7 +36,6 @@ class PlayView:SurfaceHolder.Callback {
     }
 
     fun start(path: String) {
-        Log.e("path",path)
         nativeStart(path,surfaceHolder!!.surface)
     }
     private external fun nativeStart(getPath:String, surface: Surface)

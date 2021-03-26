@@ -2,6 +2,7 @@
   <dictionary name="Administrator">
     <words>
       <w>avdic</w>
+      <w>decodec</w>
       <w>ffmpeg</w>
       <w>logd</w>
       <w>qchemmo</w>

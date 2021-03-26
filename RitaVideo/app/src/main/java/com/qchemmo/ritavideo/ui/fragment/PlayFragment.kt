@@ -1,4 +1,6 @@
 package com.qchemmo.ritavideo.ui.fragment
+import android.net.Uri
+import android.os.Bundle
 import android.os.Environment
 import android.util.Log
 import android.view.View
@@ -23,14 +25,18 @@ class PlayFragment:BaseFragment() {
 
     }
 
-    override fun initListener() {
+    override fun onActivityCreated(savedInstanceState: Bundle?) {
+        super.onActivityCreated(savedInstanceState)
         val playView = PlayView()
         playView.setSurfaceView(sfv_video)
-        val url = Environment.getExternalStoragePublicDirectory("/kotlin/test.mp4")
+        val url =Environment.getExternalStoragePublicDirectory("kotlin/test.mp4")
         btn_play.setOnClickListener{
-            playView.start(url.absolutePath);
-            Log.e("test","T");
+            playView.start(url.path)
         }
+    }
+
+    override fun initListener() {
+
     }
 
     external fun ffmpeg():String

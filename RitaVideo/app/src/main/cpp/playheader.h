@@ -15,6 +15,7 @@
 #include <jni.h>
 #include <iostream>
 #include <android/log.h>
+#include <thread>
 #include <android/native_window_jni.h>
 
 using namespace std;
