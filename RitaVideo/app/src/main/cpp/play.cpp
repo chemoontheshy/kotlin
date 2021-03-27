@@ -348,7 +348,7 @@ Java_com_qchemmo_ritavideo_view_PlayView_nativeStart(JNIEnv *env, jobject thiz, 
         countFrame++;
         LOGE("decode %d frame",countFrame);
 
-        //解锁
+        //解锁/test
         //ANativeWindow_unlockAndPost(nativeWindow);
         usleep(1000*16);
         av_packet_unref(packet);
